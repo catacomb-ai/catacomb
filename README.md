@@ -3,9 +3,12 @@
 
 In this repository, we serve a trained Recurrent Neural Network (LSTM) to make predictions over HTTP.
 
+## Architecture
+Custom machine learning system code is defined in `system.py`, where we only load a pre-trained model (i.e. no training occurs within this application). In particular, we implement the `output()` interface on Catacomb's `Model` class, which is called in our generated `server.py` file.
+
 ## Usage
-1. Install dependencies using [Pipenv](): `pipenv install`.
-2. Run server: `pipenv run python interface.py`.
+1. Install dependencies with [Pipenv]() using `pipenv install`.
+2. Run server using `pipenv run python interface.py`.
 
 ### Requests and Responses
 You can `curl` the HTTP server to make a prediction:
