@@ -33,7 +33,7 @@ class Model:
             def _default_unk_index():
                 return 0
             vocab._default_unk_index = _default_unk_index
-            
+
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         saved_model = torch.load('./saved_model.pt', map_location=self.device)
         self.model, self.stoi = saved_model['model'], saved_model['stoi']
@@ -43,6 +43,7 @@ class Model:
 
 
     # Implementing `output` interface for type `Text -> Number`
+    # @catacomb.type(input=catacomb.TEXT, output=catacomb.NUMBER)
     def output(self, sentence):
         tokenized = [tok.text for tok in self.nlp.tokenizer(sentence)]
         indexed = [self.stoi[t] for t in tokenized]
