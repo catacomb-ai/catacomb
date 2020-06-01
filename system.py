@@ -4,7 +4,7 @@ from torchtext import vocab
 import torch.nn as nn
 
 
-# Model Definition
+# Model definition for later use
 class RNN(nn.Module):
     def __init__(self, vocab_size, embedding_dim, hidden_dim, output_dim, n_layers, bidirectional, dropout, pad_idx):
         super().__init__()
@@ -23,8 +23,9 @@ class RNN(nn.Module):
         return self.fc(hidden.squeeze(0))
 
 
+# Implementing Catacomb's Model class
 class Model:
-    # Loading Saved Model (no training)
+    # Loading saved model upon initialization (no training)
     def __init__(self):
         try:
             vocab._default_unk_index
