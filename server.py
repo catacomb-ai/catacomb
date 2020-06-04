@@ -1,5 +1,5 @@
 from flask import Flask, request
-from system import RNN, Model
+from system import *
 
 app = Flask(__name__)
 model = Model()
