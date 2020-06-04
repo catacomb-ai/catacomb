@@ -7,7 +7,7 @@ In this repository, we serve a trained Recurrent Neural Network (LSTM) to make p
 Custom machine learning system code is defined in `system.py`, where we only load a pre-trained model (i.e. no training occurs within this application). In particular, we implement the `output()` interface on Catacomb's `Model` class, which is called in our generated `server.py` file.
 
 ## Usage
-1. Install dependencies with [Pipenv]() using `pipenv install`.
+1. Install dependencies with [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/) using `pipenv install`.
 2. Run server using `pipenv run python interface.py`.
 
 ### Requests and Responses
@@ -27,3 +27,6 @@ The server should return a JSON object representing a continuous value between 0
   "output": 0.06209390237927437
 }
 ```
+
+## License
+MIT
