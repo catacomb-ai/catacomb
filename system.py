@@ -1,10 +1,11 @@
+"""1) Include/define any dependencies for catacomb.System class"""
 import torch
-import en_core_web_sm
-from torchtext import vocab
+import torchtext
 import torch.nn as nn
+import en_core_web_sm
+import catacomb
+from catacomb import Types
 
-
-# Model definition for later use
 class RNN(nn.Module):
     def __init__(self, vocab_size, embedding_dim, hidden_dim, output_dim, n_layers, bidirectional, dropout, pad_idx):
         super().__init__()
@@ -23,33 +24,33 @@ class RNN(nn.Module):
         return self.fc(hidden.squeeze(0))
 
 
-# Implementing Catacomb's Model class
-class Model:
-    # Loading saved model upon initialization (no training)
+"""2) Implementing catacomb.System class with initialization and output methods"""
+class Model(catacomb.System):
     def __init__(self):
-        try:
-            vocab._default_unk_index
+        # Setting system type annotation
+        self.format(Types.TEXT, Types.NUMBER)
+
+        # Initializing torchtext vocabulary
+        try: torchtext.vocab._default_unk_index
         except AttributeError:
             def _default_unk_index():
                 return 0
-            vocab._default_unk_index = _default_unk_index
+            torchtext.vocab._default_unk_index = _default_unk_index
 
+        # Loading saved model upon initialization (no training)
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         saved_model = torch.load('./saved_model.pt', map_location=self.device)
         self.model, self.stoi = saved_model['model'], saved_model['stoi']
 
+        # Finalizing system initialization
         self.model.eval()
         self.nlp = en_core_web_sm.load()
 
-
-    # Implementing `output` interface for type `Text -> Number`
-    # @catacomb.type(input=catacomb.TEXT, output=catacomb.NUMBER)
+    # Implementing `output` interface for type `TEXT -> NUMBER`
     def output(self, sentence):
         tokenized = [tok.text for tok in self.nlp.tokenizer(sentence)]
         indexed = [self.stoi[t] for t in tokenized]
-        length = [len(indexed)]
-        tensor = torch.LongTensor(indexed).to(self.device)
-        tensor = tensor.unsqueeze(1)
-        length_tensor = torch.LongTensor(length)
-        prediction = torch.sigmoid(self.model(tensor, length_tensor))
-        return prediction.item()
+        tensor = torch.LongTensor(indexed).to(self.device).unsqueeze(1)
+        length_tensor = torch.LongTensor([len(indexed)])
+        prediction = torch.sigmoid(self.model(tensor, length_tensor)).item()
+        return prediction
