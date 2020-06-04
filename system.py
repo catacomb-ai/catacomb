@@ -25,7 +25,7 @@ class RNN(nn.Module):
 
 
 """2) Implementing catacomb.System class with initialization and output methods"""
-class Model(catacomb.System):
+class System(catacomb.System):
     def __init__(self):
         # Setting system type annotation
         self.format(Types.TEXT, Types.NUMBER)
@@ -48,9 +48,12 @@ class Model(catacomb.System):
 
     # Implementing `output` interface for type `TEXT -> NUMBER`
     def output(self, sentence):
+        # Tokenize string and encode values
         tokenized = [tok.text for tok in self.nlp.tokenizer(sentence)]
         indexed = [self.stoi[t] for t in tokenized]
         tensor = torch.LongTensor(indexed).to(self.device).unsqueeze(1)
+
+        # Perform and return prediction
         length_tensor = torch.LongTensor([len(indexed)])
         prediction = torch.sigmoid(self.model(tensor, length_tensor)).item()
         return prediction
