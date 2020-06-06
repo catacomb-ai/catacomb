@@ -27,9 +27,6 @@ class RNN(nn.Module):
 """2) Implementing catacomb.System class with initialization and output methods"""
 class System(catacomb.System):
     def __init__(self):
-        # Setting system type annotation
-        self.format(Types.TEXT, Types.NUMBER)
-
         # Initializing torchtext vocabulary
         try: torchtext.vocab._default_unk_index
         except AttributeError:
