@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request
 from system import *
 
@@ -10,4 +11,4 @@ def predict():
     return {'output': system.output(input_object)}
 
 if __name__ == "__main__":
-	app.run(port=5000, debug=True)
+	app.run(port=int(os.environ['PORT']), debug=True)
