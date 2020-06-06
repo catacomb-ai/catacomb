@@ -12,6 +12,7 @@ torch = "*"
 torchtext = "*"
 en-core-web-sm = {file = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz"}
 catacomb-ai = "*"
+pytorch-lightning = "*"
 
 [requires]
 python_version = "3.7"
