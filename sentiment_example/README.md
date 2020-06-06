@@ -1,7 +1,7 @@
-# Trained Model Example
+# Sentiment Analysis Example
 > Sentiment Analysis using PyTorch
 
-In this repository, we serve a trained Recurrent Neural Network (LSTM) to make predictions over HTTP.
+In this example, we serve a trained Recurrent Neural Network (LSTM) to make predictions over HTTP.
 
 ## Architecture
 Custom machine learning system code is defined in `system.py`, where we only load a pre-trained model (i.e. no training occurs within this application). In particular, we implement the `output()` interface on Catacomb's `Model` class, which is called in our generated `server.py` file.
