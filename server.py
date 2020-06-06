@@ -11,4 +11,4 @@ def predict():
     return {'output': system.output(input_object)}
 
 if __name__ == "__main__":
-	app.run(port=int(os.environ['PORT']), debug=True)
+	app.run(port=int(os.getenv('PORT', 5000)), debug=True)
