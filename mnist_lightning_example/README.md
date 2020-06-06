@@ -1,5 +1,5 @@
 # Trained Model Example
-> Image Recognition using PyTorch
+> Image Recognition using PyTorch Lightning
 
 In this repository, we serve a trained Feed Forward Neural Network to make predictions over HTTP.
 
