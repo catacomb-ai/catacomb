@@ -4,7 +4,12 @@ from torch import nn
 import pytorch_lightning as pl
 from torch.utils.data import DataLoader, random_split
 from torch.nn import functional as F
+from torchvision import transforms
 import catacomb
+
+from PIL import Image
+from io import BytesIO
+import base64
 
 class LightningMNISTClassifier(pl.LightningModule):
 
@@ -34,4 +39,11 @@ class System(catacomb.System):
     # Implementing `output` interface for type `IMAGE -> LABEL`
     def output(self, image):
         # transform image and run through network
-        pass
+        img = Image.open(BytesIO(base64.b64decode(image)))
+        transform=transforms.Compose([transforms.ToTensor(), 
+                                      transforms.Normalize((0.1307,), (0.3081,))])
+        
+        img = transform(img).unsqueeze(0)
+        return self.model(img).argmax(1).item()
+
+
