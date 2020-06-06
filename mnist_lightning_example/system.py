@@ -1,15 +1,14 @@
 """1) Include/define any dependencies for catacomb.System class"""
-import torch
-from torch import nn
+import base64
+from io import BytesIO
 import pytorch_lightning as pl
-from torch.utils.data import DataLoader, random_split
-from torch.nn import functional as F
-from torchvision import transforms
+import torch
 import catacomb
 
 from PIL import Image
-from io import BytesIO
-import base64
+from torch.utils.data import DataLoader, random_split
+from torchvision import transforms
+
 
 class LightningMNISTClassifier(pl.LightningModule):
 
@@ -38,12 +37,13 @@ class System(catacomb.System):
 
     # Implementing `output` interface for type `IMAGE -> LABEL`
     def output(self, image):
-        # transform image and run through network
+        # decode base64 image and open in PIL
         img = Image.open(BytesIO(base64.b64decode(image)))
+
+        # transform PIL image to tensor
         transform=transforms.Compose([transforms.ToTensor(), 
-                                      transforms.Normalize((0.1307,), (0.3081,))])
-        
+                                      transforms.Normalize((0.1307,), (0.3081,))])        
         img = transform(img).unsqueeze(0)
-        return self.model(img).argmax(1).item()
-
-
+        
+        prediction = self.model(img).argmax(1).item()
+        return prediction
