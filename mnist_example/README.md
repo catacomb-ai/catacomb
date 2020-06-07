@@ -2,7 +2,7 @@
 > Image Recognition using PyTorch Lightning
 
 In this example, we serve a trained Feed-Forward Neural Network (using
-the [PyTorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning)library) to make predictions over HTTP.
+the [PyTorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning) library) to make predictions over HTTP.
 
 ## Architecture
 Custom machine learning system code is defined in `system.py`, where we only load a pre-trained model (i.e. no training occurs within this application). In particular, we implement the `output()` interface on Catacomb's `System` class, which is called in our generated `server.py` file.
