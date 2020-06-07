@@ -4,12 +4,13 @@ from flask_cors import CORS, cross_origin
 from system import *
 
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app, support_credentials=True)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 system = System()
 
 @app.route("/predict", methods=['POST'])
+@cross_origin(supports_credentials=True)
 def predict():
     input_object = request.get_json()['input']
     return jsonify(output=system.output(input_object))
