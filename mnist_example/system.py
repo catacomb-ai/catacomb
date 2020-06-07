@@ -11,7 +11,6 @@ from torchvision import transforms
 
 
 class LightningMNISTClassifier(pl.LightningModule):
-
     def __init__(self):
         super(LightningMNISTClassifier, self).__init__()
         self.layer_1 = torch.nn.Linear(28 * 28, 128)
@@ -41,9 +40,9 @@ class System(catacomb.System):
         img = Image.open(BytesIO(base64.b64decode(image)))
 
         # transform PIL image to tensor
-        transform=transforms.Compose([transforms.ToTensor(), 
-                                      transforms.Normalize((0.1307,), (0.3081,))])        
+        transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])        
         img = transform(img).unsqueeze(0)
         
+        # compute prediction
         prediction = self.model(img).argmax(1).item()
         return prediction
