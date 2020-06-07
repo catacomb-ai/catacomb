@@ -24,7 +24,7 @@ The server should return a JSON object representing a continuous value between 0
 
 ```javascript
 {
-  "output": 0.06209390237927437
+  "output": 0.0535087063908577
 }
 ```
 
