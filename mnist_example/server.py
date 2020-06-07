@@ -9,7 +9,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 system = System()
 
-@app.route("/predict", methods=['POST'])
+@app.route("/predict", methods=['GET', 'POST'])
 @cross_origin(supports_credentials=True)
 def predict():
     input_object = request.get_json()['input']
