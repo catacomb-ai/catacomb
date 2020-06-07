@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f529d28991119f5f7d653e7f5133c841d8595dfabfad51a82ce3d52eaf4a830a"
+            "sha256": "4ac48f769790b8e24b233c90e638f5efa48b63dddff355212ae3d60570c29d30"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -53,11 +53,11 @@
         },
         "catacomb-ai": {
             "hashes": [
-                "sha256:5ad1054a8caecd56f299b6c04c572b0027afcc06d2e89c9909d7ab4f5c16bf2c",
-                "sha256:ffcd841dc1e9f4a207846b45635a56b9eb8b38bc5885ec16ae4b0dde04fe7880"
+                "sha256:53661a0dbd0e12eb3a9d8bc36aceb543639508b056099a568903e5673ecfa0a0",
+                "sha256:d3df546749866369e077098e72b8be2bcbd28dc600ec6f7b64a8689fa428e73b"
             ],
             "index": "pypi",
-            "version": "==0.0.12"
+            "version": "==0.0.14"
         },
         "catalogue": {
             "hashes": [
@@ -69,10 +69,10 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:1d987a998c75633c40847cc966fcf5904906c920a7f17ef374f5aa4282abd304",
-                "sha256:51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
+                "sha256:5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1",
+                "sha256:9cd41137dc19af6a5e03b630eefe7d1f458d964d406342dd3edf625839b944cc"
             ],
-            "version": "==2020.4.5.1"
+            "version": "==2020.4.5.2"
         },
         "chardet": {
             "hashes": [
@@ -128,6 +128,14 @@
             ],
             "index": "pypi",
             "version": "==1.1.2"
+        },
+        "flask-cors": {
+            "hashes": [
+                "sha256:72170423eb4612f0847318afff8c247b38bd516b7737adfc10d1c2cdbb382d16",
+                "sha256:f4d97201660e6bbcff2d89d082b5b6d31abee04b1b3003ee073a6fd25ad1d69a"
+            ],
+            "index": "pypi",
+            "version": "==3.0.8"
         },
         "future": {
             "hashes": [
