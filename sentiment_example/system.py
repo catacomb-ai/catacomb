@@ -1,10 +1,10 @@
 """1) Include/define any dependencies for catacomb.System class"""
+import en_core_web_sm
 import torch
 import torchtext
 import torch.nn as nn
-import en_core_web_sm
 import catacomb
-from catacomb import Types
+
 
 class RNN(nn.Module):
     def __init__(self, vocab_size, embedding_dim, hidden_dim, output_dim, n_layers, bidirectional, dropout, pad_idx):

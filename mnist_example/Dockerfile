@@ -13,9 +13,6 @@ COPY Pipfile* /app/
 # Install project dependencies
 RUN pipenv install --system
 
-# Download language shit
-RUN python -m spacy download en_core_web_sm
-
 # Copy project files
 COPY . /app/
 
