@@ -1,14 +1,15 @@
 """1) Include/define any dependencies for catacomb.System class"""
-# import transformers
-from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification#, AutoModelForSequenceClassification, AutoTokenizer
+from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 import catacomb
+
+MODEL_LOCATION = "mrm8488/distilroberta-base-finetuned-sentiment"
 
 
 """2) Implementing catacomb.System class with initialization and output methods"""
 class System(catacomb.System):
     def __init__(self):
-        tokenizer = AutoTokenizer.from_pretrained("mrm8488/distilroberta-base-finetuned-sentiment")
-        model = AutoModelForSequenceClassification.from_pretrained("mrm8488/distilroberta-base-finetuned-sentiment")
+        tokenizer = AutoTokenizer.from_pretrained(MODEL_LOCATION)
+        model = AutoModelForSequenceClassification.from_pretrained(MODEL_LOCATION)
 
         self.sentiment_pipeline = pipeline(
             "sentiment-analysis",
@@ -16,6 +17,5 @@ class System(catacomb.System):
             tokenizer=tokenizer
         )
 
-    # Implementing `output` interface for type `TEXT -> LABEL`
     def output(self, sentence):
         return self.sentiment_pipeline(sentence)
