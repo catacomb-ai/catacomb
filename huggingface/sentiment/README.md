@@ -1,7 +1,7 @@
 # Sentiment Analysis Example
 > Sentiment Analysis using HuggingFace
 
-In this example, we serve a distilled Transformed model to make predictions over HTTP.
+In this example, we serve a distilled Transformer model to make predictions over HTTP.
 
 ## Architecture
 Custom machine learning system code is defined in `system.py`, where we only load a pre-trained model (i.e. no training occurs within this application). In particular, we implement the `output()` interface on Catacomb's `System` class, which is called in our generated `server.py` file.
