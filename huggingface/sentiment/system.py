@@ -17,4 +17,4 @@ class System(catacomb.System):
         )
 
     def output(self, sentence):
-        return self.sentiment_pipeline(sentence)
+        return self.sentiment_pipeline(sentence)[0]
