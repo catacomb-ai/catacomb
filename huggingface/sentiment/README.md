@@ -24,7 +24,10 @@ The server should return a JSON object representing a continuous value between 0
 
 ```javascript
 {
-  "output": 0.0535087063908577
+  "output": {
+    "label": "POSITIVE",
+    "score": 0.9999999
+  }
 }
 ```
 
