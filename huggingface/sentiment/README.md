@@ -1,7 +1,7 @@
-# Sentiment Analysis Example
-> Sentiment Analysis using PyTorch
+# HuggingFace DistilBERT Sentiment Analysis Example
+> Sentiment Analysis using a pre-trained HuggingFace DistilBERT Model
 
-In this example, we show how to serve a trained Recurrent Neural Network (LSTM) to make predictions through the Catacomb application.
+In this example, we show how to serve a trained DistilBERT model to make predictions through the Catacomb application.
 
 ## Architecture
 Custom machine learning system code is defined in `system.py`, where we only load a pre-trained model (i.e. no training occurs within this application). In particular, we implement the `output()` interface on Catacomb's `System` class. The Catacomb server then makes calls to this system in order to generate predictions.
