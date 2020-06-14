@@ -7,10 +7,8 @@ verify_ssl = true
 
 [packages]
 transformers = "*"
-catacomb-ai = "*"
-flask = "*"
-flask-cors = "*"
 torch = "*"
+catacomb-ai = "*"
 
 [requires]
 python_version = "3.7"
