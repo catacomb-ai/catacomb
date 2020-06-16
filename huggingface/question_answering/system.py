@@ -18,4 +18,5 @@ class System(catacomb.System):
 
     def output(self, input):
         context, question = input['context'], input['question']
-        return self.qa_pipeline(question=question, context=context)
+        output = self.qa_pipeline(question=question, context=context)
+        return {"answer": output["answer"], "score": output["score"]}
