@@ -4,7 +4,9 @@ In this repository, we serve several example trained models to make predictions 
 ## Examples
 - Sentiment Classifier (PyTorch)
 - MNIST Digit Classifier (PyTorch Lightning)
-- Fine-Tuned Language Model (HuggingFace)
+- Fine-Tuned Language Model for Sentiment Classification (HuggingFace)
+- Fine-Tuned Language Model for Question Answering (HuggingFace)
+- Fine-Tuned Language Model for Summarization (HuggingFace)
 
 
 ## Usage
