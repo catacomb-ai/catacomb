@@ -7,8 +7,6 @@ MODEL_NAME = "t5-small"
 """2) Implementing catacomb.System class with initialization and output methods"""
 class System(catacomb.System):
     def __init__(self):
-        tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-        model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
 
         self.summarization_pipeline = pipeline(
             "summarization",
@@ -17,4 +15,6 @@ class System(catacomb.System):
         )
 
     def output(self, input):
-        return self.summarization_pipeline(sentence)
+        text = input['text']
+        min_length, max_length = input['min_length'], input['max_length']
+        return self.summarization_pipeline(text, min_length=min_length, max_length=max_length)[0]
