@@ -54,5 +54,8 @@ the client is logged into a Docker account (for pushing images to the Docker reg
 
 Deployment to Catacomb hosting can be done with the following commands:
 
+1. `catacomb build`
+2. `catacomb push`
+
 ## License
 MIT
