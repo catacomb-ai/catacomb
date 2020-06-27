@@ -18,11 +18,11 @@
     "default": {
         "catacomb-ai": {
             "hashes": [
-                "sha256:346db39601ad61927123a9fddbe150e47aeb34227b573f9642c5acb07f91db77",
-                "sha256:8d6c048512ffd9a1f7c0c32a00266be12ce308ac5ff71ef27a53f6234cca7c31"
+                "sha256:0d5c81a22a392bae31a89b8f86c2f32b9eaa6f302620fee3c9f3fecd2f587dd0",
+                "sha256:167622cd9a6bea15a23323de40aad86afadac9f502ca06cdd7e7eb97d3642032"
             ],
             "index": "pypi",
-            "version": "==0.1.15"
+            "version": "==0.1.21"
         },
         "certifi": {
             "hashes": [
