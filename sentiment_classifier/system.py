@@ -54,3 +54,6 @@ class System(catacomb.System):
         length_tensor = torch.LongTensor([len(indexed)])
         prediction = torch.sigmoid(self.model(tensor, length_tensor)).item()
         return prediction
+
+if __name__ == '__main__':
+    catacomb.start(System())
