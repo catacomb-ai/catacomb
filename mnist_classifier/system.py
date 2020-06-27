@@ -32,12 +32,16 @@ class LightningMNISTClassifier(pl.LightningModule):
 """2) Implementing catacomb.System class with initialization and output methods"""
 class System(catacomb.System):
     def __init__(self):
-        self.model = LightningMNISTClassifier.load_from_checkpoint('./saved_model.ckpt')
+        checkpoint = torch.load('./saved_model.ckpt', map_location=lambda storage, loc: storage)
+        self.model = LightningMNISTClassifier()
+        self.model.load_state_dict(checkpoint['state_dict'])
 
     # Implementing `output` interface for type `IMAGE -> LABEL`
-    def output(self, image):
+    def output(self, file):
         # decode base64 image and open in PIL
-        img = Image.open(BytesIO(base64.b64decode(image)))
+        header, encoded = file.split(',', 1)
+        decoded = BytesIO(base64.b64decode(encoded))
+        img = Image.open(decoded)
 
         # transform PIL image to tensor
         transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])        
@@ -46,3 +50,6 @@ class System(catacomb.System):
         # compute prediction
         prediction = self.model(img).argmax(1).item()
         return prediction
+
+if __name__ == '__main__':
+    catacomb.start(System())
