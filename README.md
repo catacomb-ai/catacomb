@@ -1,5 +1,5 @@
 # Catacomb
-Catacomb is the simplest machine learning platform for deploying prototypes, conducting quality assurance, and tracking production model performance. 
+Catacomb is the simplest machine learning library for deploying prototypes, conducting quality assurance, and tracking production model performance. 
 
 ## Usage
 
