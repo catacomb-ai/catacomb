@@ -34,17 +34,22 @@ import catacomb
 
 class System(catacomb.System):
     def __init__(self):
-        # Finish other system setup
+        """Initializing system and loading dependencies"""
         self.variable = 42
 
     def output(self, input_object):
-        # Performing inference and returning a prediction
+        """Performing inference and returning a prediction"""
         return input_object * self.variable
+        
+if __name__ == "__main__":
+    catacomb.start(System())
 ```
 
 Implementing the `System` interface allows Catacomb to auto-generate a UI for the system/model,
 in addition to performing predictions over HTTP. Model hosting will fail unless all dependencies
 are defined within the current directory (i.e. a `Pipfile` or `requirements.txt` file is required).
+
+Optionally, you can start a local REST API by running `catacomb.start(System())` when the script is called using `python system.py` (lines 12 to 13 in above example).
 
 ### Deployment
 
