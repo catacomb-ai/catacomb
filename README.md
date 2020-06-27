@@ -1,5 +1,5 @@
 # Catacomb
-Catacomb is a platform that hosts artificial intelligence systems so that anybody can interact with them in an intuitive way. We handle free deployment of machine learning models, from automatically generating a front-end application to handling analytics on model usage.
+Catacomb is the simplest machine learning platform for deploying prototypes, conducting quality assurance, and tracking production model performance. 
 
 ## Usage
 
@@ -20,13 +20,14 @@ Options:
   --help  Show this message and exit.
 
 Commands:
-  delete
+  build
+  push
+  run
 ```
 
 ### Required Files
 
-The only file Catacomb expects is a `system.py` file that implements the `System` class, including overriding
-the `__init__` and `output` method:
+The only file Catacomb expects is a `system.py` file that implements the `System` class, including overriding the `__init__` and `output` method:
 
 ```python
 import catacomb
@@ -51,27 +52,7 @@ Containerization is at the core of Catacomb's hosting platform.
 Catacomb's build process requires that Docker is both already installed on the local machine, and 
 the client is logged into a Docker account (for pushing images to the Docker registry). 
 
-Deployment to Catacomb hosting can be done in a single command: 
-
-```
-catacomb
-```
-
-The CLI will prompt for the required project metadata such as system name, 
-and type annotations of input and output objects, before deploying:
-
-```
-$ catacomb
-
-🤖 Image name: neural-network
-🤖 Docker account username: hinton
-
-🤖 Got it, deploying!
-
-Your app is live at: https://catacomb.ai/hinton/neural-network/.
-
-Enjoy!
-```
+Deployment to Catacomb hosting can be done with the following commands:
 
 ## License
 MIT
