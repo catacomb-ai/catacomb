@@ -78,7 +78,7 @@ This will install any packages specified in the `Pipfile` or `requirements.txt` 
 One an image has been created with `catacomb build`, the `catacomb push` command can be run to push this image to Docker and produce an upload url. If you are logged into your account on [beta](https://beta.catacomb.ai), you can simply enter this url in to finish uploading the system to your profile.
 
 #### External Dependencies
-Additional external dependencies can be installed by specifying a `catacomb.sh` bash file to run on the created image. This file is automatically detected during the `catacomb build` process.
+Additional external dependencies can be installed by specifying a `catacomb.sh` bash file to run on the created image. This file is detected during the `catacomb build` process.
 
 ## License
 MIT
