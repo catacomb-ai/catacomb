@@ -56,4 +56,4 @@ class System(catacomb.System):
         return prediction
 
 if __name__ == '__main__':
-    catacomb.start(System())
+    catacomb.connect(System(), 'TEXT', 'JSON')
