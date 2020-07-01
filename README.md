@@ -52,8 +52,6 @@ are defined within the current directory (i.e. a `Pipfile` or `requirements.txt`
 Optionally, you can start a local REST API by running `catacomb.start(System())` when the script is called using `python system.py` (lines 12 to 13 in above example).
 
 ### Deployment
-
-Containerization is at the core of Catacomb's hosting platform. 
 Catacomb's build process requires that Docker is both already installed on the local machine, and 
 the client is logged into a Docker account (for pushing images to the Docker registry). 
 
@@ -75,7 +73,7 @@ Run `catacomb build` to build a Docker image from the current directory. You wil
 
 This will install any packages specified in the `Pipfile` or `requirements.txt` onto the Docker image and copy all contents of the current directory to the image.
 
-One an image has been created with `catacomb build`, the `catacomb push` command can be run to push this image to Docker and produce an upload url. If you are logged into your account on [beta](https://beta.catacomb.ai), you can simply enter this url in to finish uploading the system to your profile.
+One an image has been created with `catacomb build`, the `catacomb push` command can be run to push this image to Docker and produce an upload url. If you are logged into your account on [Catacomb](https://beta.catacomb.ai), you can simply go to this URL to finalize deployment.
 
 #### External Dependencies
 Additional external dependencies can be installed by specifying a `catacomb.sh` bash file to run on the created image. This file is detected during the `catacomb build` process.
