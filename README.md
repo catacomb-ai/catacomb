@@ -4,7 +4,7 @@
 The simplest machine learning library for deploying prototypes, conducting quality assurance, and tracking production model performance. 
 
 #### Preview
-![demo](static/demo.gif | width=50)
+![demo](static/demo.gif)
 
 ## Usage
 
