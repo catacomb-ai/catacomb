@@ -1,6 +1,9 @@
 # Catacomb
 Catacomb is the simplest machine learning library for deploying prototypes, conducting quality assurance, and tracking production model performance. 
 
+#### Preview
+[![asciicast](https://asciinema.org/a/4q2OKzxrRKe2ql32BZwnqyKrE.svg)](https://asciinema.org/a/4q2OKzxrRKe2ql32BZwnqyKrE)
+
 ## Usage
 
 ### Installation
