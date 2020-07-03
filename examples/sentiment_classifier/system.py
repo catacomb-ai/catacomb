@@ -1,4 +1,4 @@
-"""1) Include/define any dependencies for catacomb.System class"""
+# 1) Include/define any dependencies for catacomb.System class
 import en_core_web_sm
 import torch
 import torchtext
@@ -24,7 +24,7 @@ class RNN(nn.Module):
         return self.fc(hidden.squeeze(0))
 
 
-"""2) Implementing catacomb.System class with initialization and output methods"""
+# 2) Implement catacomb.System class with initialization and output methods
 class System(catacomb.System):
     def __init__(self):
         # Initializing torchtext vocabulary
@@ -52,8 +52,7 @@ class System(catacomb.System):
 
         # Perform and return prediction
         length_tensor = torch.LongTensor([len(indexed)])
-        prediction = torch.sigmoid(self.model(tensor, length_tensor)).item()
-        return prediction
+        return torch.sigmoid(self.model(tensor, length_tensor)).item()
 
 if __name__ == '__main__':
-    catacomb.connect(System(), 'TEXT', 'JSON')
+    catacomb.connect(System, 'TEXT', name='Sentiment Analysis')
