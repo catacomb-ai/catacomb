@@ -1,9 +1,10 @@
-![logo](static/logo.png)
+<img src="static/logo.png" alt="alt text" width="33.333%" />
+
 
 The simplest machine learning library for deploying prototypes, conducting quality assurance, and tracking production model performance. 
 
 #### Preview
-![demo](static/demo.gif)
+![demo](static/demo.gif | width=50)
 
 ## Usage
 
