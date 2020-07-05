@@ -1,6 +1,8 @@
 # Quickstart Guide
 > Building machine learning is hard. Using it shouldn't be.
 
+### Introduction
+
 This guide will get you up and running with Catacomb in under 10 minutes. 
 
 We recommend using a *cloud training platform* like [Google Colab](https://colab.research.google.com) to run this demonstration. However, Catacomb fully supports any operating system and runtime, so feel free to use your own computer as well!
