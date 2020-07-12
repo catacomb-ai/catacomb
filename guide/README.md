@@ -52,7 +52,7 @@ The type of the `input` variable depends on the configuration and implementation
 
 #### Example
 
-Here's an implemented Catacomb interface for sentiment analysis, where we assume that `input` is a string:
+Here's an implemented Catacomb interface for sentiment analysis, where we assume that `text` is a string:
 
 ```python
 class SentimentClassifier:
@@ -67,6 +67,6 @@ class SentimentClassifier:
             tokenizer=tokenizer
         )
 
-    def output(self, input):
-        return self.sentiment_pipeline(input)[0]
+    def output(self, text):
+        return self.sentiment_pipeline(text)[0]
 ```
