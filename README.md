@@ -64,7 +64,7 @@ catacomb upload
 and following the command-line prompts to configure meta-data and example test cases.
 
 #### External Dependencies
-Additional external dependencies can be installed by specifying a `catacomb.sh` bash file to run on the created image. This file is detected during the `catacomb build` process.
+Additional external dependencies can be installed by specifying a `catacomb.sh` bash file to run on the created image. This file is detected during the `catacomb upload` build process.
 
 ## License
 MIT
