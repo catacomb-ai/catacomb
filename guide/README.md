@@ -70,3 +70,30 @@ class SentimentClassifier:
     def output(self, input):
         return self.sentiment_pipeline(input)[0]
 ```
+
+### Launching a User Interface
+
+Finally, the moment you were waiting for: automatically creating and launching a front-end interface to interact with your model. We can do this with a single call to the Catacomb library:
+
+```python
+catacomb.connect(SentimentClassifier, 'TEXT')
+```
+
+This will connect your local model to the Catacomb platform, enabling custom interfaces and testing structures. We can also provide additional keyword arguments to `catacomb.connect()` to provide meta-data and examples:
+
+```python
+examples = ["I love this product!", "This product sucks."]
+catacomb.connect(SentimentClassifier, 'TEXT', name="Sentiment Classifier", examples=examples)
+```
+
+This interface will be unavailable when the Python script or iPython notebook terminates. To remedy this, we can deploy our model to the Catacomb cloud platform for wide-availability.
+
+### Deploying a Model
+
+Model deployments are done through the Catacomb hosting platform, and can be triggered from the command line (or CI/CD workflows) by executing:
+
+```bash
+$ catacomb upload
+```
+
+Model configuration can be edited through the `.catacomb` file (in YAML format).
