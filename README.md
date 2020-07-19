@@ -65,13 +65,12 @@ Deployment to Catacomb hosting can be done with the following commands:
 
 Include dependencies for `system.py` in a `Pipfile` and corresponding `Pipfile.lock` if using [Pipenv](https://pypi.org/project/pipenv/), or in a `requirements.txt` file. 
 
-Run `catacomb build` to build a Docker image from the current directory. You will be prompted for an image name and you Dockerhub username.
+Run `catacomb upload` to deploy the model to Catacomb's hosting service.
 
 ```
-➜ catacomb build
-🤖 Image name: example
-🤖 Docker hub username: mukundv7
-🤖 Building your Docker image (this may take a while so you might wanna grab some coffee ☕)...
+➜ catacomb upload
+Image name: example
+🤖: Uploading your model image (this may take a while so you might wanna grab some coffee ☕)...
 ```
 
 This will install any packages specified in the `Pipfile` or `requirements.txt` onto the Docker image and copy all contents of the current directory to the image, as well as pushing to the public Docker container registry.
